@@ -81,25 +81,53 @@ public:
 
 int main()
 {
-    int choice = 0, enterPIN;
+    int choice = 0, enterPIN , n;
     long int enterAccountNo;
     system("cls");
 
     ATM user1;
+    // list of user's
     user1.setData(123456789, 2005, "kartik", 400000, "9300868487");
+    user1.setData(987654321, 2222, "RAM", 10, "5555666333");
+    user1.setData(553566320, 4455, "JOE", 6500, "6655442211");
+    user1.setData(456321595, 5544, "SENSI", 10000000, "2288446696");
+    user1.setData(445512632, 2233, "PRITAM", 1400000, "1166779944");
+    user1.setData(779564821, 1212, "BABLU", 55, "1800108080");
+    user1.setData(124563987, 8956, "SANKET", 852, "4695713511");
+    user1.setData(456328719, 7458, "DEVANSH", 456, "7711993366");
 
+    ATM user2;
+    user2.setData(111111111, 1111, "OWNER", 0, " ");
+   
     do
     {
         system("cls");
-        cout << endl
+        cout << endl;
              << "Welcome to Atm\n";
-        cout << endl
+        cout << endl;
              << "Enter your account no. : ";
         cin >> enterAccountNo;
-        cout << endl
+        cout << endl;
              << "Enter your PIN : ";
         cin >> enterPIN;
+        cout << endl;
+        cin >> choice;
+        switch (choice)
+        {
+        case 1:
+            if ((enterAccountNo == user2.getAccountNo()) && (enterPIN == user2.getPIN()))
+            {n=7;
 
+                for (int i = 0; i < n; i++)
+                {
+                    cout << user1.getName()<< " " << user1.getAccountNo()<< " " << user1.getMobileNo()<< " " << user1.getAccountBal();
+                    cout<<endl;               
+                }
+                getch();
+            }
+            break;
+
+        case 2:
         if ((enterAccountNo == user1.getAccountNo()) && (enterPIN == user1.getPIN()))
         {
             do
@@ -142,7 +170,7 @@ int main()
                     _getch();
                     break;
 
-                case4:
+                 case 4:
                     cout << endl
                          << "Enter your old mobile No. : ";
                     cin >> oldMobileNo;
@@ -163,8 +191,11 @@ int main()
             }
              while (1);
         }
-        
-
+        break;
+        default:
+            printf("INVALID...");
+       
+        }
     } while (1);
 
     return 0;
